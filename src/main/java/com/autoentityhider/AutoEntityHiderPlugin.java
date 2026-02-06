@@ -12,9 +12,9 @@ import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ConfigChanged;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
-import net.runelite.client.plugins.autoentityhider.rules.RegionRule;
-import net.runelite.client.plugins.autoentityhider.rules.RegionRules;
 import net.runelite.client.plugins.entityhider.EntityHiderConfig;
+import com.autoentityhider.rules.RegionRule;
+import com.autoentityhider.rules.RegionRules;
 
 import javax.inject.Inject;
 import java.util.HashMap;

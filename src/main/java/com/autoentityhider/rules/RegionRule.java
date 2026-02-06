@@ -1,7 +1,7 @@
 package com.autoentityhider.rules;
 
-import net.runelite.client.plugins.autoentityhider.AutoEntityHiderConfig;
-import net.runelite.client.plugins.autoentityhider.regions.RegionId;
+import com.autoentityhider.AutoEntityHiderConfig;
+import com.autoentityhider.regions.RegionId;
 
 import java.util.function.Predicate;
 
