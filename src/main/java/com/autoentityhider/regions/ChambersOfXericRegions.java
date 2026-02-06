@@ -4,6 +4,7 @@ public enum ChambersOfXericRegions implements RegionId
 {
 	OLM(12889);
 
+	// TODO: add additional COX region IDs later.
 
 	private final int id;
 
