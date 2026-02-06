@@ -136,27 +136,37 @@ public class EntityHider
 	/**
 	 * Apply hide settings from the config. Called when entering a configured region.
 	 */
-	public void applyConfig(AutoEntityHiderConfig config)
+	public void applyInsideConfig(AutoEntityHiderConfig config)
+	{
+		applyFromConfig(config, false);
+	}
+
+	public void applyOutsideConfig(AutoEntityHiderConfig config)
+	{
+		applyFromConfig(config, true);
+	}
+
+	private void applyFromConfig(AutoEntityHiderConfig config, boolean outside)
 	{
 		this.active = true;
-		this.hideOthers = config.hideOthers();
-		this.hideOthers2D = config.hideOthers2D();
-		this.hidePartyMembers = config.hidePartyMembers();
-		this.hideFriends = config.hideFriends();
-		this.hideFriendsChatMembers = config.hideFriendsChatMembers();
-		this.hideClanMembers = config.hideClanChatMembers();
-		this.hideIgnoredPlayers = config.hideIgnores();
-		this.hideLocalPlayer = config.hideLocalPlayer();
-		this.hideLocalPlayer2D = config.hideLocalPlayer2D();
-		this.hideNPCs = config.hideNPCs();
-		this.hideNPCs2D = config.hideNPCs2D();
-		this.hideDeadNpcs = config.hideDeadNpcs();
-		this.hideBoats = config.hideWorldEntities();
-		this.hidePets = config.hidePets();
-		this.hideThralls = config.hideThralls();
-		this.hideRandomEvents = config.hideRandomEvents();
-		this.hideAttackers = config.hideAttackers();
-		this.hideProjectiles = config.hideProjectiles();
+		this.hideOthers = outside ? config.outsideHideOthers() : config.hideOthers();
+		this.hideOthers2D = outside ? config.outsideHideOthers2D() : config.hideOthers2D();
+		this.hidePartyMembers = outside ? config.outsideHidePartyMembers() : config.hidePartyMembers();
+		this.hideFriends = outside ? config.outsideHideFriends() : config.hideFriends();
+		this.hideFriendsChatMembers = outside ? config.outsideHideFriendsChatMembers() : config.hideFriendsChatMembers();
+		this.hideClanMembers = outside ? config.outsideHideClanChatMembers() : config.hideClanChatMembers();
+		this.hideIgnoredPlayers = outside ? config.outsideHideIgnores() : config.hideIgnores();
+		this.hideLocalPlayer = outside ? config.outsideHideLocalPlayer() : config.hideLocalPlayer();
+		this.hideLocalPlayer2D = outside ? config.outsideHideLocalPlayer2D() : config.hideLocalPlayer2D();
+		this.hideNPCs = outside ? config.outsideHideNPCs() : config.hideNPCs();
+		this.hideNPCs2D = outside ? config.outsideHideNPCs2D() : config.hideNPCs2D();
+		this.hideDeadNpcs = outside ? config.outsideHideDeadNpcs() : config.hideDeadNpcs();
+		this.hideBoats = outside ? config.outsideHideWorldEntities() : config.hideWorldEntities();
+		this.hidePets = outside ? config.outsideHidePets() : config.hidePets();
+		this.hideThralls = outside ? config.outsideHideThralls() : config.hideThralls();
+		this.hideRandomEvents = outside ? config.outsideHideRandomEvents() : config.hideRandomEvents();
+		this.hideAttackers = outside ? config.outsideHideAttackers() : config.hideAttackers();
+		this.hideProjectiles = outside ? config.outsideHideProjectiles() : config.hideProjectiles();
 	}
 
 	/**
@@ -193,8 +203,13 @@ public class EntityHider
 	@VisibleForTesting
 	boolean shouldDraw(Renderable renderable, boolean drawingUI)
 	{
-		// If not active, draw everything
 		if (!active)
+		{
+			return true;
+		}
+
+		Player local = client.getLocalPlayer();
+		if (local == null)
 		{
 			return true;
 		}
@@ -202,7 +217,6 @@ public class EntityHider
 		if (renderable instanceof Player)
 		{
 			Player player = (Player) renderable;
-			Player local = client.getLocalPlayer();
 
 			if (player.getName() == null)
 			{
@@ -256,7 +270,7 @@ public class EntityHider
 				return false;
 			}
 
-			if (npc.getInteracting() == client.getLocalPlayer())
+			if (npc.getInteracting() == local)
 			{
 				boolean b = hideAttackers;
 				if (hideNPCs2D || hideNPCs)
@@ -311,12 +325,7 @@ public class EntityHider
 
 			Scene scene = (Scene) renderable;
 			WorldEntity we = client.getTopLevelWorldView().worldEntities().byIndex(scene.getWorldViewId());
-			if (we.getOwnerType() == WorldEntity.OWNER_TYPE_OTHER_PLAYER)
-			{
-				return false;
-			}
-
-			return true;
+			return we.getOwnerType() != WorldEntity.OWNER_TYPE_OTHER_PLAYER;
 		}
 
 		return true;

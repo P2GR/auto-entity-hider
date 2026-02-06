@@ -46,11 +46,18 @@ public interface AutoEntityHiderConfig extends Config
 	String minigamesSection = "minigames";
 
 	@ConfigSection(
-			name = "Hide Config",
-			description = "Entity Hider flags to apply",
+			name = "Hide Config (Inside Regions)",
+			description = "Entity Hider flags to apply inside configured regions",
 			position = 5
 	)
 	String hideSection = "hide";
+
+	@ConfigSection(
+			name = "Hide Config (Outside Regions)",
+			description = "Entity Hider flags to apply outside configured regions",
+			position = 6
+	)
+	String outsideHideSection = "outsideHide";
 
 	// ------------------------------
 	// Locations
@@ -369,7 +376,7 @@ public interface AutoEntityHiderConfig extends Config
 	}
 
 	// ------------------------------
-	// Hide Config
+	// Hide Config (Inside Regions)
 	// ------------------------------
 	@ConfigItem(
 			position = 60,
@@ -583,6 +590,225 @@ public interface AutoEntityHiderConfig extends Config
 			section = hideSection
 	)
 	default boolean hideRandomEvents()
+	{
+		return false;
+	}
+
+	// ------------------------------
+	// Hide Config (Outside Regions)
+	// ------------------------------
+	@ConfigItem(
+			position = 80,
+			keyName = "outsideHideOthers",
+			name = "Hide others",
+			description = "Hide other players",
+			section = outsideHideSection
+	)
+	default boolean outsideHideOthers()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+			position = 81,
+			keyName = "outsideHideOthers2D",
+			name = "Hide others' 2D",
+			description = "Hide other players' 2D elements",
+			section = outsideHideSection
+	)
+	default boolean outsideHideOthers2D()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+			position = 82,
+			keyName = "outsideHidePartyMembers",
+			name = "Hide party members",
+			description = "Hide party members",
+			section = outsideHideSection
+	)
+	default boolean outsideHidePartyMembers()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+			position = 83,
+			keyName = "outsideHideFriends",
+			name = "Hide friends",
+			description = "Hide friends",
+			section = outsideHideSection
+	)
+	default boolean outsideHideFriends()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+			position = 84,
+			keyName = "outsideHideFriendsChatMembers",
+			name = "Hide friends chat members",
+			description = "Hide friends chat members",
+			section = outsideHideSection
+	)
+	default boolean outsideHideFriendsChatMembers()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+			position = 85,
+			keyName = "outsideHideClanChatMembers",
+			name = "Hide clan chat members",
+			description = "Hide clan chat members",
+			section = outsideHideSection
+	)
+	default boolean outsideHideClanChatMembers()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+			position = 86,
+			keyName = "outsideHideIgnores",
+			name = "Hide ignores",
+			description = "Hide ignored players",
+			section = outsideHideSection
+	)
+	default boolean outsideHideIgnores()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+			position = 87,
+			keyName = "outsideHideLocalPlayer",
+			name = "Hide local player",
+			description = "Hide the local player",
+			section = outsideHideSection
+	)
+	default boolean outsideHideLocalPlayer()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+			position = 88,
+			keyName = "outsideHideLocalPlayer2D",
+			name = "Hide local player 2D",
+			description = "Hide the local player's 2D elements",
+			section = outsideHideSection
+	)
+	default boolean outsideHideLocalPlayer2D()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+			position = 89,
+			keyName = "outsideHideNPCs",
+			name = "Hide NPCs",
+			description = "Hide NPCs",
+			section = outsideHideSection
+	)
+	default boolean outsideHideNPCs()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+			position = 90,
+			keyName = "outsideHideNPCs2D",
+			name = "Hide NPCs 2D",
+			description = "Hide NPCs 2D elements",
+			section = outsideHideSection
+	)
+	default boolean outsideHideNPCs2D()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+			position = 91,
+			keyName = "outsideHideWorldEntities",
+			name = "Hide boats",
+			description = "Hide boats and related world entities",
+			section = outsideHideSection
+	)
+	default boolean outsideHideWorldEntities()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+			position = 92,
+			keyName = "outsideHidePets",
+			name = "Hide others' pets",
+			description = "Hide other players' pets",
+			section = outsideHideSection
+	)
+	default boolean outsideHidePets()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+			position = 93,
+			keyName = "outsideHideAttackers",
+			name = "Hide attackers",
+			description = "Hide NPCs/players attacking you",
+			section = outsideHideSection
+	)
+	default boolean outsideHideAttackers()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+			position = 94,
+			keyName = "outsideHideProjectiles",
+			name = "Hide projectiles",
+			description = "Hide projectiles",
+			section = outsideHideSection
+	)
+	default boolean outsideHideProjectiles()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+			position = 95,
+			keyName = "outsideHideDeadNpcs",
+			name = "Hide dead NPCs",
+			description = "Hide dead NPCs",
+			section = outsideHideSection
+	)
+	default boolean outsideHideDeadNpcs()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+			position = 96,
+			keyName = "outsideHideThralls",
+			name = "Hide thralls",
+			description = "Hide thralls",
+			section = outsideHideSection
+	)
+	default boolean outsideHideThralls()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+			position = 97,
+			keyName = "outsideHideRandomEvents",
+			name = "Hide random events",
+			description = "Hide other players' random events",
+			section = outsideHideSection
+	)
+	default boolean outsideHideRandomEvents()
 	{
 		return false;
 	}

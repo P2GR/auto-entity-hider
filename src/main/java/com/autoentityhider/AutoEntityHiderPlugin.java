@@ -36,19 +36,20 @@ public class AutoEntityHiderPlugin extends Plugin
 
 	private int lastRegionId = -1;
 	private Boolean lastShouldApply;
+	private boolean configDirty;
 
 	@Override
 	protected void startUp()
 	{
+		log.info("AutoEntityHider starting up");
 		entityHider.register();
-		lastRegionId = -1;
-		lastShouldApply = null;
 		updateAutoEntityHider();
 	}
 
 	@Override
 	protected void shutDown()
 	{
+		log.info("AutoEntityHider shutting down");
 		entityHider.clearConfig();
 		entityHider.unregister();
 	}
@@ -80,25 +81,38 @@ public class AutoEntityHiderPlugin extends Plugin
 		int currentRegionId = getCurrentRegionId();
 		if (currentRegionId != lastRegionId)
 		{
+			log.debug("Region changed: {} -> {}", lastRegionId, currentRegionId);
 			lastRegionId = currentRegionId;
 		}
 
 		RegionRule matchedRule = findMatchingRule(currentRegionId);
 		boolean shouldApply = matchedRule != null;
 
-		if (lastShouldApply == null || shouldApply != lastShouldApply)
+		boolean stateChanged = (lastShouldApply == null || shouldApply != lastShouldApply);
+		if (stateChanged)
 		{
+			log.info("AutoEntityHider decision changed: shouldApply={}, rule={}", shouldApply,
+					matchedRule != null ? matchedRule.getName() : "none");
 			lastShouldApply = shouldApply;
-
-			if (shouldApply)
-			{
-				entityHider.applyConfig(config);
-			}
-			else
-			{
-				entityHider.clearConfig();
-			}
 		}
+
+		if (!stateChanged && !configDirty)
+		{
+			return;
+		}
+
+		if (shouldApply)
+		{
+			entityHider.applyInsideConfig(config);
+			log.debug("Applied inside-region hiding for: {}", matchedRule.getName());
+		}
+		else
+		{
+			entityHider.applyOutsideConfig(config);
+			log.debug("Applied outside-region hiding");
+		}
+
+		configDirty = false;
 	}
 
 	private int getCurrentRegionId()
@@ -127,6 +141,8 @@ public class AutoEntityHiderPlugin extends Plugin
 	{
 		if (event.getGroup().equals(AutoEntityHiderConfig.GROUP))
 		{
+			log.debug("AutoEntityHider config changed: {}", event.getKey());
+			configDirty = true;
 			updateAutoEntityHider();
 		}
 	}
@@ -138,12 +154,7 @@ public class AutoEntityHiderPlugin extends Plugin
 		{
 			entityHider.clearConfig();
 			lastShouldApply = null;
-			return;
-		}
-
-		if (event.getGameState() == GameState.LOGGED_IN)
-		{
-			updateAutoEntityHider();
+			configDirty = false;
 		}
 	}
 }
