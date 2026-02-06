@@ -1,5 +1,6 @@
 package com.autoentityhider.rules;
 
+import com.autoentityhider.regions.*;
 import com.autoentityhider.AutoEntityHiderConfig;
 import com.autoentityhider.regions.*;
 
