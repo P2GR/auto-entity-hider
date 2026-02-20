@@ -32,7 +32,8 @@ public final class RegionRules
 		new RegionRule("TOA: Kephri Boss", TombsOfAmascutRegions.KEHPHRI_BOSS, AutoEntityHiderConfig::toaKephriBossRoom),
 		new RegionRule("TOA: Zebak Puzzle", TombsOfAmascutRegions.ZEBAK_PUZZLE, AutoEntityHiderConfig::toaZebakPuzzleRoom),
 		new RegionRule("TOA: Zebak Boss", TombsOfAmascutRegions.ZEBAK_BOSS, AutoEntityHiderConfig::toaZebakBossRoom),
-		new RegionRule("TOA: Warden", TombsOfAmascutRegions.WARDEN_OBELISK, AutoEntityHiderConfig::toaWardenObeliskRoom),
+		new RegionRule("TOA: Warden (P1/P2)", TombsOfAmascutRegions.WARDEN_P1_P2, AutoEntityHiderConfig::toaWardenP1P2),
+		new RegionRule("TOA: Warden (P3/P4)", TombsOfAmascutRegions.WARDEN_P3_P4, AutoEntityHiderConfig::toaWardenP3P4),
 		new RegionRule("TOA: Reward", TombsOfAmascutRegions.REWARD, AutoEntityHiderConfig::toaRewardRoom),
 
 		// Theatre of Blood

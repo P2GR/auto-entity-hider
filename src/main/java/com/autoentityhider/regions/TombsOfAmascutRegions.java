@@ -11,7 +11,8 @@ public enum TombsOfAmascutRegions implements RegionId
 	KEHPHRI_BOSS(14164),
 	ZEBAK_PUZZLE(15698),
 	ZEBAK_BOSS(15700),
-	WARDEN_OBELISK(15184),
+	WARDEN_P1_P2(15184),
+	WARDEN_P3_P4(15696),
 	REWARD(14672);
 
 	private final int id;
