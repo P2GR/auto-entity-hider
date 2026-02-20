@@ -202,18 +202,30 @@ public interface AutoEntityHiderConfig extends Config
 
 	@ConfigItem(
 			position = 30,
-			keyName = "toaWardenObeliskRoom",
-			name = "Warden: Obelisk Room",
-			description = "Apply hiding in Warden obelisk room",
+			keyName = "toaWardenP1P2",
+			name = "Warden: P1/P2",
+			description = "Apply hiding in Warden phases 1 and 2",
 			section = toaSection
 	)
-	default boolean toaWardenObeliskRoom()
+	default boolean toaWardenP1P2()
 	{
 		return true;
 	}
 
 	@ConfigItem(
 			position = 31,
+			keyName = "toaWardenP3P4",
+			name = "Warden: P3/P4",
+			description = "Apply hiding in Warden phases 3 and 4",
+			section = toaSection
+	)
+	default boolean toaWardenP3P4()
+	{
+		return true;
+	}
+
+	@ConfigItem(
+			position = 32,
 			keyName = "toaRewardRoom",
 			name = "Reward Room",
 			description = "Apply hiding in Tombs reward room",
