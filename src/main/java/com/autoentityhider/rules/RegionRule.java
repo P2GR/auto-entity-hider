@@ -3,6 +3,7 @@ package com.autoentityhider.rules;
 import com.autoentityhider.AutoEntityHiderConfig;
 import com.autoentityhider.regions.RegionId;
 
+import java.util.Arrays;
 import java.util.function.Predicate;
 
 /**
@@ -11,13 +12,20 @@ import java.util.function.Predicate;
 public final class RegionRule
 {
 	private final String name;
-	private final RegionId region;
+	private final int[] regionIds;
 	private final Predicate<AutoEntityHiderConfig> configToggle;
 
 	public RegionRule(String name, RegionId region, Predicate<AutoEntityHiderConfig> configToggle)
 	{
+		this(name, new RegionId[]{region}, configToggle);
+	}
+
+	public RegionRule(String name, RegionId[] regions, Predicate<AutoEntityHiderConfig> configToggle)
+	{
 		this.name = name;
-		this.region = region;
+		this.regionIds = Arrays.stream(regions)
+				.mapToInt(RegionId::getId)
+				.toArray();
 		this.configToggle = configToggle;
 	}
 
@@ -26,9 +34,9 @@ public final class RegionRule
 		return name;
 	}
 
-	public int getRegionId()
+	public boolean matchesRegion(int regionId)
 	{
-		return region.getId();
+		return Arrays.stream(regionIds).anyMatch(id -> id == regionId);
 	}
 
 	public boolean isEnabled(AutoEntityHiderConfig config)

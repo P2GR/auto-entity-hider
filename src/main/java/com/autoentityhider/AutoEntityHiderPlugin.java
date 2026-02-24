@@ -128,7 +128,7 @@ public class AutoEntityHiderPlugin extends Plugin
 	{
 		for (RegionRule rule : RegionRules.getAll())
 		{
-			if (rule.isEnabled(config) && rule.getRegionId() == currentRegionId)
+			if (rule.isEnabled(config) && rule.matchesRegion(currentRegionId))
 			{
 				return rule;
 			}

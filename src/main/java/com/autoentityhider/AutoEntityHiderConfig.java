@@ -74,6 +74,18 @@ public interface AutoEntityHiderConfig extends Config
 		return false;
 	}
 
+	@ConfigItem(
+			position = 11,
+			keyName = "playerOwnedHouse",
+			name = "Player-owned House",
+			description = "Apply hiding in PoH",
+			section = locationsSection
+	)
+	default boolean playerOwnedHouse()
+	{
+		return false;
+	}
+
 	// ------------------------------
 	// Chambers of Xeric
 	// ------------------------------

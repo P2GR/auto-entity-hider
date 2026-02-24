@@ -2,7 +2,6 @@ package com.autoentityhider.rules;
 
 import com.autoentityhider.regions.*;
 import com.autoentityhider.AutoEntityHiderConfig;
-import com.autoentityhider.regions.*;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -47,6 +46,7 @@ public final class RegionRules
 
 		// Locations
 		new RegionRule("Grand Exchange", GrandExchangeRegions.GRAND_EXCHANGE, AutoEntityHiderConfig::grandExchange),
+		new RegionRule("Player-owned House", PlayerOwnedHouseRegions.values(), AutoEntityHiderConfig::playerOwnedHouse),
 
 		// Minigames
 		new RegionRule("Wintertodt: Boss", MinigameRegions.WINTERTODT_BOSS, AutoEntityHiderConfig::wintertodtBoss),
