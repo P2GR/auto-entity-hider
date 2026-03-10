@@ -29,6 +29,13 @@ public final class RegionRule
 		this.configToggle = configToggle;
 	}
 
+	public RegionRule(String name, int[] regionIds, Predicate<AutoEntityHiderConfig> configToggle)
+	{
+		this.name = name;
+		this.regionIds = Arrays.copyOf(regionIds, regionIds.length);
+		this.configToggle = configToggle;
+	}
+
 	public String getName()
 	{
 		return name;

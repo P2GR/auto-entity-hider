@@ -46,7 +46,7 @@ public final class RegionRules
 
 		// Locations
 		new RegionRule("Grand Exchange", GrandExchangeRegions.GRAND_EXCHANGE, AutoEntityHiderConfig::grandExchange),
-		new RegionRule("Player-owned House", PlayerOwnedHouseRegions.values(), AutoEntityHiderConfig::playerOwnedHouse),
+		new RegionRule("Player-owned House", PlayerOwnedHouseRegions.REGION_IDS, AutoEntityHiderConfig::playerOwnedHouse),
 
 		// Minigames
 		new RegionRule("Wintertodt: Boss", MinigameRegions.WINTERTODT_BOSS, AutoEntityHiderConfig::wintertodtBoss),
