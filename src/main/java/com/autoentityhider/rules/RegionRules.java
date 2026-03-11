@@ -53,7 +53,7 @@ public final class RegionRules
 		new RegionRule("Wintertodt: Bank", MinigameRegions.WINTERTODT_BANK, AutoEntityHiderConfig::wintertodtBank),
 		new RegionRule("Tempoross: Boss", MinigameRegions.TEMPOROSS_BOSS, AutoEntityHiderConfig::temporossBoss),
 		new RegionRule("Tempoross: Lobby", MinigameRegions.TEMPOROSS_LOBBY, AutoEntityHiderConfig::temporossLobby),
-		new RegionRule("Guardians of the Rift", MinigameRegions.GUARDIANS_OF_THE_RIFT, AutoEntityHiderConfig::guardiansOfTheRift)
+		new RegionRule("Guardians of the Rift", GuardiansOfTheRiftRegions.REGION_IDS, AutoEntityHiderConfig::guardiansOfTheRift)
 	);
 
 	public static List<RegionRule> getAll()
