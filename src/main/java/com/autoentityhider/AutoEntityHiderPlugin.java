@@ -4,6 +4,7 @@ import com.google.inject.Provides;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
+import net.runelite.api.coords.WorldPoint;
 import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.GameTick;
 import net.runelite.client.config.ConfigManager;
@@ -121,7 +122,14 @@ public class AutoEntityHiderPlugin extends Plugin
 		{
 			return -1;
 		}
-		return client.getLocalPlayer().getWorldLocation().getRegionID();
+
+		WorldPoint worldPoint = client.getLocalPlayer().getWorldLocation();
+		if (client.getTopLevelWorldView().isInstance())
+		{
+			worldPoint = WorldPoint.fromLocalInstance(client, client.getLocalPlayer().getLocalLocation());
+		}
+
+		return worldPoint != null ? worldPoint.getRegionID() : -1;
 	}
 
 	private RegionRule findMatchingRule(int currentRegionId)
