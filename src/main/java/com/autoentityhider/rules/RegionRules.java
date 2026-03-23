@@ -47,6 +47,7 @@ public final class RegionRules
 		// Locations
 		new RegionRule("Grand Exchange", GrandExchangeRegions.GRAND_EXCHANGE, AutoEntityHiderConfig::grandExchange),
 		new RegionRule("Player-owned House", PlayerOwnedHouseRegions.REGION_IDS, AutoEntityHiderConfig::playerOwnedHouse),
+		new RegionRule("Gemstone Crab", GemstoneCrabRegions.REGION_IDS, AutoEntityHiderConfig::gemstoneCrab),
 
 		// Minigames
 		new RegionRule("Wintertodt: Boss", MinigameRegions.WINTERTODT_BOSS, AutoEntityHiderConfig::wintertodtBoss),

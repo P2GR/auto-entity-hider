@@ -86,6 +86,18 @@ public interface AutoEntityHiderConfig extends Config
 		return false;
 	}
 
+	@ConfigItem(
+			position = 12,
+			keyName = "gemstoneCrab",
+			name = "Gemstone Crab",
+			description = "Apply hiding in Gemstone Crab regions",
+			section = locationsSection
+	)
+	default boolean gemstoneCrab()
+	{
+		return false;
+	}
+
 	// ------------------------------
 	// Chambers of Xeric
 	// ------------------------------
