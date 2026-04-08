@@ -12,6 +12,7 @@ import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ConfigChanged;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
+import net.runelite.client.ui.overlay.OverlayManager;
 import com.autoentityhider.rules.RegionRule;
 import com.autoentityhider.rules.RegionRules;
 
@@ -35,6 +36,12 @@ public class AutoEntityHiderPlugin extends Plugin
 	@Inject
 	private EntityHider entityHider;
 
+	@Inject
+	private OverlayManager overlayManager;
+
+	@Inject
+	private AutoEntityHiderOverlay overlay;
+
 	private int lastRegionId = -1;
 	private Boolean lastShouldApply;
 	private boolean configDirty;
@@ -44,6 +51,7 @@ public class AutoEntityHiderPlugin extends Plugin
 	{
 		log.info("AutoEntityHider starting up");
 		entityHider.register();
+		overlayManager.add(overlay);
 		updateAutoEntityHider();
 	}
 
@@ -51,6 +59,7 @@ public class AutoEntityHiderPlugin extends Plugin
 	protected void shutDown()
 	{
 		log.info("AutoEntityHider shutting down");
+		overlayManager.remove(overlay);
 		entityHider.clearConfig();
 		entityHider.unregister();
 	}
@@ -59,6 +68,11 @@ public class AutoEntityHiderPlugin extends Plugin
 	AutoEntityHiderConfig getConfig(ConfigManager configManager)
 	{
 		return configManager.getConfig(AutoEntityHiderConfig.class);
+	}
+
+	public boolean isInConfiguredRegion()
+	{
+		return Boolean.TRUE.equals(lastShouldApply);
 	}
 
 	@Subscribe

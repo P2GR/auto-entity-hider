@@ -1,9 +1,12 @@
 package com.autoentityhider;
 
+import java.awt.Color;
+import net.runelite.client.config.Alpha;
 import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
 import net.runelite.client.config.ConfigSection;
+import net.runelite.client.config.Range;
 
 @ConfigGroup(AutoEntityHiderConfig.GROUP)
 public interface AutoEntityHiderConfig extends Config
@@ -46,18 +49,78 @@ public interface AutoEntityHiderConfig extends Config
 	String minigamesSection = "minigames";
 
 	@ConfigSection(
+			name = "Player Outline (Inside Regions)",
+			description = "Render a coloured outline around your character when inside a configured region",
+			position = 5
+	)
+	String playerOutlineSection = "playerOutline";
+
+	@ConfigSection(
 			name = "Hide Config (Inside Regions)",
 			description = "Entity Hider flags to apply inside configured regions",
-			position = 5
+			position = 6
 	)
 	String hideSection = "hide";
 
 	@ConfigSection(
 			name = "Hide Config (Outside Regions)",
 			description = "Entity Hider flags to apply outside configured regions",
-			position = 6
+			position = 7
 	)
 	String outsideHideSection = "outsideHide";
+
+	// ------------------------------
+	// Player Outline (Inside Regions)
+	// ------------------------------
+	@ConfigItem(
+			position = 50,
+			keyName = "playerOutline",
+			name = "Enable player outline",
+			description = "Draw an outline around your character when inside a configured region",
+			section = playerOutlineSection
+	)
+	default boolean playerOutline()
+	{
+		return false;
+	}
+
+	@Alpha
+	@ConfigItem(
+			position = 51,
+			keyName = "playerOutlineColor",
+			name = "Outline colour",
+			description = "The colour of the player outline",
+			section = playerOutlineSection
+	)
+	default Color playerOutlineColor()
+	{
+		return new Color(0xFF0000FF, true);
+	}
+
+	@ConfigItem(
+			position = 52,
+			keyName = "playerOutlineBorderWidth",
+			name = "Border width",
+			description = "Width of the player outline border",
+			section = playerOutlineSection
+	)
+	default int playerOutlineBorderWidth()
+	{
+		return 4;
+	}
+
+	@Range(max = 4)
+	@ConfigItem(
+			position = 53,
+			keyName = "playerOutlineFeather",
+			name = "Outline feather",
+			description = "How much the outline should be faded (0 = sharp, 4 = most faded)",
+			section = playerOutlineSection
+	)
+	default int playerOutlineFeather()
+	{
+		return 0;
+	}
 
 	// ------------------------------
 	// Locations
