@@ -94,7 +94,7 @@ public interface AutoEntityHiderConfig extends Config
 	)
 	default Color playerOutlineColor()
 	{
-		return new Color(0xFF0000FF, true);
+		return new Color(0, 0, 255);
 	}
 
 	@ConfigItem(

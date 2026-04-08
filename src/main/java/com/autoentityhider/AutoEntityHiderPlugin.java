@@ -70,7 +70,7 @@ public class AutoEntityHiderPlugin extends Plugin
 		return configManager.getConfig(AutoEntityHiderConfig.class);
 	}
 
-	public boolean isInConfiguredRegion()
+	boolean isInConfiguredRegion()
 	{
 		return Boolean.TRUE.equals(lastShouldApply);
 	}
