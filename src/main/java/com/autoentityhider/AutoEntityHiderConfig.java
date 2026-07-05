@@ -59,6 +59,13 @@ public interface AutoEntityHiderConfig extends Config
 	)
 	String outsideHideSection = "outsideHide";
 
+	@ConfigSection(
+			name = "Moons of Peril",
+			description = "Moons of Peril room toggles",
+			position = 7
+	)
+	String moonsOfPerilSection = "moonsOfPeril";
+
 	// ------------------------------
 	// Locations
 	// ------------------------------
@@ -407,6 +414,93 @@ public interface AutoEntityHiderConfig extends Config
 			section = minigamesSection
 	)
 	default boolean guardiansOfTheRift()
+	{
+		return true;
+	}
+
+	@ConfigItem(
+			position = 49,
+			keyName = "soulwarsLobby",
+			name = "Soulwars: Lobby",
+			description = "Apply hiding in Soulwars lobby",
+			section = minigamesSection
+	)
+	default boolean soulwarsLobby()
+	{
+		return true;
+	}
+
+	@ConfigItem(
+			position = 50,
+			keyName = "soulwarsArena",
+			name = "Soulwars: Arena",
+			description = "Apply hiding in Soulwars arena",
+			section = minigamesSection
+	)Moons of Peril
+	// ------------------------------
+	@ConfigItem(
+			position = 0,
+			keyName = "moonsOfPerilBloodMoon",
+			name = "Blood Moon",
+			description = "Apply hiding in Blood Moon room",
+			section = moonsOfPerilSection
+	)
+	default boolean moonsOfPerilBloodMoon()
+	{
+		return true;
+	}
+
+	@ConfigItem(
+			position = 1,
+			keyName = "moonsOfPerilBlueMoon",
+			name = "Blue Moon",
+			description = "Apply hiding in Blue Moon room",
+			section = moonsOfPerilSection
+	)
+	default boolean moonsOfPerilBlueMoon()
+	{
+		return true;
+	}
+
+	@ConfigItem(
+			position = 2,
+			keyName = "moonsOfPerilEclipseMoon",
+			name = "Eclipse Moon",
+			description = "Apply hiding in Eclipse Moon room",
+			section = moonsOfPerilSection
+	)
+	default boolean moonsOfPerilEclipseMoon()
+	{
+		return true;
+	}
+
+	@ConfigItem(
+			position = 3,
+			keyName = "moonsOfPerilPreBossLobby",
+			name = "Pre-Boss Lobby",
+			description = "Apply hiding in Moons of Peril pre-boss lobby",
+			section = moonsOfPerilSection
+	)
+	default boolean moonsOfPerilPreBossLobby()
+	{
+		return true;
+	}
+
+	@ConfigItem(
+			position = 4,
+			keyName = "moonsOfPerilRewardChest",
+			name = "Reward Chest",
+			description = "Apply hiding in Moons of Peril reward chest room",
+			section = moonsOfPerilSection
+	)
+	default boolean moonsOfPerilRewardChest()
+	{
+		return true;
+	}
+
+	// ------------------------------
+	// 
+	default boolean soulwarsArena()
 	{
 		return true;
 	}

@@ -54,7 +54,18 @@ public final class RegionRules
 		new RegionRule("Wintertodt: Bank", MinigameRegions.WINTERTODT_BANK, AutoEntityHiderConfig::wintertodtBank),
 		new RegionRule("Tempoross: Boss", MinigameRegions.TEMPOROSS_BOSS, AutoEntityHiderConfig::temporossBoss),
 		new RegionRule("Tempoross: Lobby", MinigameRegions.TEMPOROSS_LOBBY, AutoEntityHiderConfig::temporossLobby),
-		new RegionRule("Guardians of the Rift", GuardiansOfTheRiftRegions.REGION_IDS, AutoEntityHiderConfig::guardiansOfTheRift)
+		new RegionRule("Guardians of the Rift", GuardiansOfTheRiftRegions.REGION_IDS, AutoEntityHiderConfig::guardiansOfTheRift),
+
+		// Soulwars
+		new RegionRule("Soulwars: Lobby", SoulwarsRegions.LOBBY, AutoEntityHiderConfig::soulwarsLobby),
+		new RegionRule("Soulwars: Arena", SoulwarsRegions.ARENA, AutoEntityHiderConfig::soulwarsArena),
+
+		// Moons of Peril
+		new RegionRule("Moons: Blood Moon", MoonsOfPerilRegions.BLOOD_MOON, AutoEntityHiderConfig::moonsOfPerilBloodMoon),
+		new RegionRule("Moons: Blue Moon", MoonsOfPerilRegions.BLUE_MOON, AutoEntityHiderConfig::moonsOfPerilBlueMoon),
+		new RegionRule("Moons: Eclipse Moon", MoonsOfPerilRegions.ECLIPSE_MOON, AutoEntityHiderConfig::moonsOfPerilEclipseMoon),
+		new RegionRule("Moons: Pre-Boss Lobby", MoonsOfPerilRegions.PRE_BOSS_LOBBY, AutoEntityHiderConfig::moonsOfPerilPreBossLobby),
+		new RegionRule("Moons: Reward Chest", MoonsOfPerilRegions.REWARD_CHEST, AutoEntityHiderConfig::moonsOfPerilRewardChest)
 	);
 
 	public static List<RegionRule> getAll()
