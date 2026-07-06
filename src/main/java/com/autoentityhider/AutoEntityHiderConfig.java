@@ -436,7 +436,14 @@ public interface AutoEntityHiderConfig extends Config
 			name = "Soulwars: Arena",
 			description = "Apply hiding in Soulwars arena",
 			section = minigamesSection
-	)Moons of Peril
+	)
+	default boolean soulwarsArena()
+	{
+		return true;
+	}
+
+	// ------------------------------
+	// Moons of Peril
 	// ------------------------------
 	@ConfigItem(
 			position = 0,
@@ -494,13 +501,6 @@ public interface AutoEntityHiderConfig extends Config
 			section = moonsOfPerilSection
 	)
 	default boolean moonsOfPerilRewardChest()
-	{
-		return true;
-	}
-
-	// ------------------------------
-	// 
-	default boolean soulwarsArena()
 	{
 		return true;
 	}
