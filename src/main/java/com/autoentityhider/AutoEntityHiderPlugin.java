@@ -44,7 +44,9 @@ public class AutoEntityHiderPlugin extends Plugin
 	{
 		log.info("AutoEntityHider starting up");
 		entityHider.register();
-		updateAutoEntityHider();
+		// Defer config application to onGameTick — client APIs require the client thread,
+		// but startUp() is called from the AWT event thread when toggling the plugin switch.
+		// lastRegionId=-1 and lastShouldApply=null ensure stateChanged=true on the first tick.
 	}
 
 	@Override
@@ -151,7 +153,6 @@ public class AutoEntityHiderPlugin extends Plugin
 		{
 			log.debug("AutoEntityHider config changed: {}", event.getKey());
 			configDirty = true;
-			updateAutoEntityHider();
 		}
 	}
 
