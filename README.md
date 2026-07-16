@@ -11,9 +11,10 @@ This lets you keep one profile for raids/minigames and another profile for norma
 
 - Tombs of Amascut: Lobby, Akkha (Puzzle/Boss), Baba (Puzzle/Boss), Kephri (Puzzle/Boss), Zebak (Puzzle/Boss), Wardens (P1/P2), Wardens (P3/P4), Reward
 - Theatre of Blood: Maiden, Bloat, Nylocas, Sotetseg, Xarpus, Verzik, Reward
-- Chambers of Xeric: Olm (more rooms added soon...)
-- Minigames: Wintertodt (Boss/Bank), Tempoross (Boss/Lobby), Guardians of the Rift
-- Locations: Grand Exchange
+- Chambers of Xeric: Olm
+- Moons of Peril: Blood Moon, Blue Moon, Eclipse Moon, Pre-Boss Lobby, Reward Chest
+- Minigames: Wintertodt (Boss/Bank), Tempoross (Boss/Lobby), Guardians of the Rift, Soulwars (Lobby/Arena), Castle Wars, Trouble Brewing
+- Locations: Grand Exchange, Player-owned House, Gemstone Crab
 
 ## Quick setup
 

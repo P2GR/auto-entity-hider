@@ -60,6 +60,12 @@ public final class RegionRules
 		new RegionRule("Soulwars: Lobby", SoulwarsRegions.LOBBY, AutoEntityHiderConfig::soulwarsLobby),
 		new RegionRule("Soulwars: Arena", SoulwarsRegions.ARENA, AutoEntityHiderConfig::soulwarsArena),
 
+		// Castle Wars
+		new RegionRule("Castle Wars", MinigameRegions.CASTLE_WARS, AutoEntityHiderConfig::castleWars),
+
+		// Trouble Brewing
+		new RegionRule("Trouble Brewing", MinigameRegions.TROUBLE_BREWING, AutoEntityHiderConfig::troubleBrewing),
+
 		// Moons of Peril
 		new RegionRule("Moons: Blood Moon", MoonsOfPerilRegions.BLOOD_MOON, AutoEntityHiderConfig::moonsOfPerilBloodMoon),
 		new RegionRule("Moons: Blue Moon", MoonsOfPerilRegions.BLUE_MOON, AutoEntityHiderConfig::moonsOfPerilBlueMoon),

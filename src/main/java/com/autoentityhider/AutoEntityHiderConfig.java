@@ -505,6 +505,30 @@ public interface AutoEntityHiderConfig extends Config
 		return true;
 	}
 
+	@ConfigItem(
+			position = 51,
+			keyName = "castleWars",
+			name = "Castle Wars",
+			description = "Apply hiding in Castle Wars",
+			section = minigamesSection
+	)
+	default boolean castleWars()
+	{
+		return true;
+	}
+
+	@ConfigItem(
+			position = 52,
+			keyName = "troubleBrewing",
+			name = "Trouble Brewing",
+			description = "Apply hiding in Trouble Brewing",
+			section = minigamesSection
+	)
+	default boolean troubleBrewing()
+	{
+		return true;
+	}
+
 	// ------------------------------
 	// Hide Config (Inside Regions)
 	// ------------------------------
