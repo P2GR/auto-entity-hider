@@ -13,7 +13,7 @@ This lets you keep one profile for raids/minigames and another profile for norma
 - Theatre of Blood: Maiden, Bloat, Nylocas, Sotetseg, Xarpus, Verzik, Reward
 - Chambers of Xeric: Olm
 - Moons of Peril: Blood Moon, Blue Moon, Eclipse Moon, Pre-Boss Lobby, Reward Chest
-- Minigames: Wintertodt (Boss/Bank), Tempoross (Boss/Lobby), Guardians of the Rift, Soulwars (Lobby/Arena), Castle Wars, Trouble Brewing
+- Minigames: Wintertodt (Boss/Bank), Tempoross (Boss/Lobby), Guardians of the Rift, Soulwars (Lobby/Arena), Castle Wars, Trouble Brewing, Blast Furnace
 - Locations: Grand Exchange, Player-owned House, Gemstone Crab
 
 ## Quick setup

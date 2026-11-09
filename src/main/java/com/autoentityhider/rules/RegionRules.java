@@ -66,6 +66,9 @@ public final class RegionRules
 		// Trouble Brewing
 		new RegionRule("Trouble Brewing", MinigameRegions.TROUBLE_BREWING, AutoEntityHiderConfig::troubleBrewing),
 
+		// Blast Furnace
+		new RegionRule("Blast Furnace", MinigameRegions.BLAST_FURNACE, AutoEntityHiderConfig::blastFurnace),
+
 		// Moons of Peril
 		new RegionRule("Moons: Blood Moon", MoonsOfPerilRegions.BLOOD_MOON, AutoEntityHiderConfig::moonsOfPerilBloodMoon),
 		new RegionRule("Moons: Blue Moon", MoonsOfPerilRegions.BLUE_MOON, AutoEntityHiderConfig::moonsOfPerilBlueMoon),

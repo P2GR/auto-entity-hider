@@ -529,6 +529,18 @@ public interface AutoEntityHiderConfig extends Config
 		return true;
 	}
 
+	@ConfigItem(
+			position = 53,
+			keyName = "blastFurnace",
+			name = "Blast Furnace",
+			description = "Apply hiding in Blast Furnace",
+			section = minigamesSection
+	)
+	default boolean blastFurnace()
+	{
+		return true;
+	}
+
 	// ------------------------------
 	// Hide Config (Inside Regions)
 	// ------------------------------

@@ -8,7 +8,8 @@ public enum MinigameRegions implements RegionId
 	TEMPOROSS_LOBBY(12588),
 	GUARDIANS_OF_THE_RIFT(14484),
 	CASTLE_WARS(9520),
-	TROUBLE_BREWING(15150);
+	TROUBLE_BREWING(15150),
+	BLAST_FURNACE(7757);
 
 	private final int id;
 
